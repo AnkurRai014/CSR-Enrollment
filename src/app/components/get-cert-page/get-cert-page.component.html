@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            margin-left: 200px;
+            margin-right: 450px;
+            margin-top: 50px;
+        }
+
+
+        .row .left {
+            float: left;
+            width: 40%;
+            margin-top: 5px;
+
+
+        }
+
+        .left1 {
+            float: left;
+            width: 40%;
+            margin-top: 5px;
+        }
+
+        .submt {
+            margin-top: 100px;
+
+
+        }
+
+        #Subject {
+            font-size: 17px;
+            line-height: 2.15;
+            padding-left: .75em;
+            padding-right: .75em;
+        }
+    </style>
+    <div class="body">
+        <h1 style="color: rgb(10, 10, 98);font-size: 35px;">CSR Enrollment</h1>
+        <p class="description">Paste your CSR and enter desired metadata to be attached with the issued certificate</p>
+        <form #certData="ngForm" (ngSubmit)="onSubmit()">
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+
+                    <h3 class="description">Certificate Request Details</h3>
+                    <hr width="900px;" color="green" size="3">
+
+
+                    <div class="left">
+                        <label class="form-label select-label">Template</label><br>
+                        <select class="select form-control-lg" name="template" [(ngModel)]="getCert.template">
+                            <option value="1"></option>
+                            <option value="WebServer">WebServer</option>
+                            <option value="CA_Exchange">CA Exchange</option>
+                            <option value="Kerberos_Authentication">Kerberos Authentication</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div> <br> <br> <br>
+
+            <div class="left">
+                <label for="Common name" class="form-label">Common Name </label><br>
+                <input type="text" class="form-control form-control-lg" id="CN" name="commonName" [(ngModel)]="getCert.certname"/>
+            </div><br>
+            <div class="left1">
+                <label for="CSR" class="form-label">CSR Content </label><br>
+                <!-- <input style="width: 600px;height: 120px;border-radius: 5px;" id="CSR" type="text" class="form-control form-control-lg" 
+                        placeholder="Enter the CSR details here!" />  -->
+                <textarea id="csr" name="csrcontent" rows="6" cols="60" placeholder="Paste the CSR details here!" [(ngModel)]="getCert.csrcontent"></textarea>
+            </div>
+            <br><br><br><br><br>
+
+            <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                    <h3 style="margin-top: 70px;" class="description">Certificate Metadata</h3>
+                    <hr width="900px;" color="green" size="3">
+                    <div class="left">
+                        <label for="email" class="form-label">Contact E-mail </label><br>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" [(ngModel)]="getCert.email"/>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="submt">
+                <input style="background-color: rgb(10, 10, 98);color: aliceblue;width: 100px;
+                      height: 30px;border-radius: 7px;" class="btn btn-primary btn-lg" type="submit" value="Enroll" />
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

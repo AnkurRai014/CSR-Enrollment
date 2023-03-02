@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            margin-left: 200px;
+            margin-right: 450px;
+            margin-top: 50px;
+        }
+
+        /* body{background-image: linear-gradient(180deg,#1b2c58 10%,#224abe 100%);} */
+        /* background-size: cover; */
+        /* #Template {
+          width: 200px;
+        } */
+
+        .row .left {
+            float: left;
+            width: 40%;
+            margin-top: 5px;
+
+
+        }
+
+        .row .right {
+            float: right;
+            width: 40%;
+            margin-top: 5px;
+        }
+
+        .submt {
+            margin-top: 210px;
+
+
+        }
+
+        #Subject {
+            font-size: 17px;
+            line-height: 2.15;
+            padding-left: .75em;
+            padding-right: .75em;
+        }
+    </style>
+    <!-- <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;"> -->
+    <div class="body">
+        <h1 style="color: rgb(10, 10, 98);font-size: 35px;">CSR Generation</h1>
+        <p class="description">Fill out the fields to create a CSR file with the required data</p>
+        <form #certData="ngForm" (ngSubmit)="onSubmit()">
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+
+                    <h3 class="description">Certificate Request Details</h3>
+                    <hr width="900px;" color="green" size="3">
+
+
+                    <div class="left">
+                        <label class="form-label select-label">Template</label><br>
+                        <select class="select form-control-lg" name="template" [(ngModel)]="generateCsr.template">
+                            <option value="1"></option>
+                            <option value="WebServer">WebServer</option>
+                            <option value="CA_Exchange">CA Exchange</option>
+                            <option value="Kerberos_Authentication">Kerberos Authentication</option>
+                        </select>
+                    </div>
+
+                    <div class="right">
+                        <label class="form-label select-label">Key Length</label><br>
+                        <select class="select form-control-lg" name="keylength" [(ngModel)]="generateCsr.keylength">
+                            <option value="1"></option>
+                            <option value="1024">RSA-1024</option>
+                            <option value="2048">RSA-2048</option>
+                            <option value="4096">RSA-4096</option>
+                        </select>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                    <h3 style="margin-top: 70px;" class="description">Certificate Subject Information</h3>
+                    <hr width="900px;" color="green" size="3">
+                    <div class="left">
+                        <label for="Common name" class="form-label">Common Name </label><br>
+                        <input type="text" class="form-control form-control-lg" id="CN" name="commonName" [(ngModel)]="generateCsr.commonName"/>
+                    </div>
+                    <div class="right">
+
+                        <label id="org" class="form-label" for="Organization">Organization</label><br>
+                        <input type="text" id="Organization" class="form-control form-control-lg" name="organization" [(ngModel)]="generateCsr.organization"/>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+
+                    <div class="left">
+                        <label class="form-label" for="Organizational Unit">Organizational Unit</label><br>
+                        <input type="text" id="Organizational Unit" class="form-control form-control-lg" name="organizationalunit" [(ngModel)]="generateCsr.organizationalunit"/>
+                    </div>
+                    <div class="right">
+                        <label class="form-label" for="State">State</label><br>
+                        <input type="text" id="State" class="form-control form-control-lg" name="state" [(ngModel)]="generateCsr.state"/>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+
+                    <div class="left">
+                        <label class="form-label" for="City">City</label><br>
+                        <input type="text" id="City" class="form-control form-control-lg" name="city" [(ngModel)]="generateCsr.city"/>
+                    </div>
+                    <div class="right">
+                        <label class="form-label" for="Country">Country</label><br>
+                        <input type="text" id="Country" class="form-control form-control-lg" name="country" [(ngModel)]="generateCsr.countrycode"/>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+
+                    <div class="left">
+                        <label class="form-label" for="E-mail">E-mail</label><br>
+                        <input type="email" id="E-mail" class="form-control form-control-lg" name="email" [(ngModel)]="generateCsr.email"/>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="submt">
+                <input style="background-color: rgb(10, 10, 98);color: aliceblue;width: 120px;
+                      height: 40px;border-radius: 7px;" class="btn btn-primary btn-lg" type="submit"
+                    value="Generate CSR" />
+            </div>
+
+        </form>
+    </div>
+    <!-- </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+</body>
+
+</html>
